@@ -1,0 +1,9 @@
+.form-container {
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+}
+
+input{
+    width: 500px;
+}
