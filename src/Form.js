@@ -10,28 +10,44 @@ function Form() {
 
                 <hr />
 
-                <label>Name:</label>
+                <div>
+                    <label>Name: </label>
+                </div>
                 <input />
                 <hr />
-                <label>Age:</label>
+                <div>
+                    <label>Age: </label>
+                </div>
                 <input />
                 <hr />
-                <label>Job title:</label>
+                <div>
+                    <label>Job title: </label>
+                </div>
                 <input />
                 <hr />
-                <label>Work for:</label>
+                <div>
+                    <label>Work for: </label>
+                </div>
                 <input />
                 <hr />
-                <label>Phone number:</label>
+                <div>
+                    <label>Phone number: </label>
+                </div>
                 <input />
                 <hr />
-                <label>Address:</label>
+                <div>
+                    <label>Address: </label>
+                </div>
                 <input />
                 <hr />
-                <label>Your salary:</label>
+                <div>
+                    <label>Your salary: </label>
+                </div>
                 <input />
                 <hr />
-                <label>Why you need this loan:</label>
+                <div>
+                    <label>Why you need this loan: </label>
+                </div>
                 <input />
                 <hr />
                 <button>sub</button>
