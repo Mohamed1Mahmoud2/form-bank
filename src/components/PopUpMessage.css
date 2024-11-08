@@ -1,4 +1,4 @@
-.popPareTwo {
+.parent-succeed {
     background-color: rgba(0, 0, 0, 0.757);
     height: 100vh;
     width: 100vw;
@@ -7,9 +7,29 @@
     align-items: center;
     position: absolute;
 }
+.parent-fallen {
+    background-color: rgba(254, 0, 0, 0.757);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
 
-.popChildTwo {
+.child {
     background-color: rgb(232, 221, 205);
     width: 90vw;
+    height: 50px;
     position: absolute;
+    display: flex;
+    justify-content: center;
+}
+
+
+.succeed{
+    color:rgb(157, 246, 24)
+}
+.fallen{
+    color: rgb(250, 39, 39);
 }

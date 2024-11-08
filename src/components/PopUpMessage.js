@@ -1,9 +1,10 @@
+import './PopUpMessage.css';
 
-function PopUpMessage({ message }) {
+function PopUpMessage({ message, addClassParent, addClassCase }) {
     return (
-        <div className="parent">
+        <div className={addClassParent}>
             <div className="child">
-                <p>{message}</p>
+                <p className={addClassCase}>Case:{message}</p>
             </div>
 
         </div>
