@@ -1,8 +1,13 @@
 
-function PopUpMessage() {
+function PopUpMessage({ message }) {
     return (
-        <div>
+        <div className="parent">
+            <div className="child">
+                <p>{message}</p>
+            </div>
 
         </div>
     )
 }
+
+export default PopUpMessage;
