@@ -14,6 +14,15 @@ function Form() {
         reson: '',
     });
     const [caseComponent, setCaseComponent] = useState('')
+    const btnIsDisable = forms.name === ''
+        || forms.age === ''
+        || forms.jobTitle === ''
+        || forms.workFor === ''
+        || forms.phoneNumber === ''
+        || forms.address === ''
+        || forms.yourSalary === ''
+        || forms.reson === '';
+    console.log('des case', btnIsDisable)
     return (
         <div className='form-container'>
             <form>
@@ -141,7 +150,19 @@ function Form() {
 
                     }} />
                 <hr />
-                <button>sub</button>
+                <button id="submit"
+                    disabled={btnIsDisable}
+                    onClick={(e) => {
+                        e.preventDefault()
+                        setCaseComponent(<PopUpMessage message={'SUBMIT SUCCESSFULLY'}
+                            addClassParent={"parent-succeed"}
+                            addClassCase={'succeed'}
+                        />)
+                        setTimeout(() => {
+                            setCaseComponent('')
+                        }, 2000);
+
+                    }}>sub</button>
             </form>
 
             {caseComponent}
