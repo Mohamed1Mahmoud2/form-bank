@@ -2,6 +2,7 @@ import { useState } from 'react'
 import PopUpMessage from './PopUpMessage';
 
 
+
 function Form() {
     const [forms, setForms] = useState({
         name: '',
@@ -23,6 +24,22 @@ function Form() {
         || forms.yourSalary === ''
         || forms.reson === '';
     console.log('des case', btnIsDisable)
+
+    function testAndPopUI(e) {
+        const reg = new RegExp('^[0-9]+$');
+        if (!reg.test(e.target.value)) {
+            console.log(reg.test(e.target.value), 'wrong => its not num')
+
+            setCaseComponent(<PopUpMessage message={'WRONG INPUT "NOT NUMBER"'}
+                addClassParent={"parent-fallen"}
+                addClassCase={'fallen'}
+            />)
+            setTimeout(() => {
+                setCaseComponent('')
+            }, 1000);
+        }
+    }
+
     return (
         <div className='form-container'>
             <form>
@@ -56,18 +73,22 @@ function Form() {
                 <input value={forms.age}
                     onChange={(e) => {
                         setForms({ ...forms, age: e.target.value })
-                        const reg = new RegExp('^[0-9]+$');
-                        if (!reg.test(e.target.value)) {
-                            console.log(reg.test(e.target.value), 'wrong => its not num')
 
-                            setCaseComponent(<PopUpMessage message={'WRONG INPUT "NOT NUMBER"'}
-                                addClassParent={"parent-fallen"}
-                                addClassCase={'fallen'}
-                            />)
-                            setTimeout(() => {
-                                setCaseComponent('')
-                            }, 1000);
-                        }
+
+                        // const reg = new RegExp('^[0-9]+$');
+                        // if (!reg.test(e.target.value)) {
+                        //     console.log(reg.test(e.target.value), 'wrong => its not num')
+                        //     //i use the block below a lot can put them in function and use the function
+                        //     setCaseComponent(<PopUpMessage message={'WRONG INPUT "NOT NUMBER"'}
+                        //         addClassParent={"parent-fallen"}
+                        //         addClassCase={'fallen'}
+                        //     />)
+                        //     setTimeout(() => {
+                        //         setCaseComponent('')
+                        //     }, 1000);
+                        // }
+
+                        testAndPopUI(e)
 
 
                     }} />
@@ -96,18 +117,20 @@ function Form() {
                 <input value={forms.phoneNumber}
                     onChange={(e) => {
                         setForms({ ...forms, phoneNumber: e.target.value })
-                        const reg = new RegExp('^[0-9]+$');
-                        if (!reg.test(e.target.value)) {
-                            console.log(reg.test(e.target.value), 'wrong => its not num')
+                        // const reg = new RegExp('^[0-9]+$');
+                        // if (!reg.test(e.target.value)) {
+                        //     console.log(reg.test(e.target.value), 'wrong => its not num')
 
-                            setCaseComponent(<PopUpMessage message={'WRONG INPUT "NOT NUMBER"'}
-                                addClassParent={"parent-fallen"}
-                                addClassCase={'fallen'}
-                            />)
-                            setTimeout(() => {
-                                setCaseComponent('')
-                            }, 1000);
-                        }
+                        //     setCaseComponent(<PopUpMessage message={'WRONG INPUT "NOT NUMBER"'}
+                        //         addClassParent={"parent-fallen"}
+                        //         addClassCase={'fallen'}
+                        //     />)
+                        //     setTimeout(() => {
+                        //         setCaseComponent('')
+                        //     }, 1000);
+                        // }
+
+                        testAndPopUI(e)
 
                     }} />
                 <hr />
@@ -126,19 +149,20 @@ function Form() {
                 <input value={forms.yourSalary}
                     onChange={(e) => {
                         setForms({ ...forms, yourSalary: e.target.value })
-                        const reg = new RegExp('^[0-9]+$');
-                        if (!reg.test(e.target.value)) {
-                            console.log(reg.test(e.target.value), 'wrong => its not num')
+                        // const reg = new RegExp('^[0-9]+$');
+                        // if (!reg.test(e.target.value)) {
+                        //     console.log(reg.test(e.target.value), 'wrong => its not num')
 
-                            setCaseComponent(<PopUpMessage message={'WRONG INPUT "NOT NUMBER"'}
-                                addClassParent={"parent-fallen"}
-                                addClassCase={'fallen'}
-                            />)
-                            setTimeout(() => {
-                                setCaseComponent('')
-                            }, 1000);
-                        }
+                        //     setCaseComponent(<PopUpMessage message={'WRONG INPUT "NOT NUMBER"'}
+                        //         addClassParent={"parent-fallen"}
+                        //         addClassCase={'fallen'}
+                        //     />)
+                        //     setTimeout(() => {
+                        //         setCaseComponent('')
+                        //     }, 1000);
+                        // }
 
+                        testAndPopUI(e)
                     }} />
                 <hr />
                 <div>
