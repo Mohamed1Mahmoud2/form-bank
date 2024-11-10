@@ -55,15 +55,18 @@ function Form() {
                     onChange={(e) => {
                         setForms({ ...forms, name: e.target.value })
 
-                        // const reg = new RegExp('^[0-9]+$');
-                        // if (reg.test(e.target.value)) {
-                        //     console.log(reg.test(e.target.value), 'wrong => its not str had num')
+                        const reg = new RegExp('[0-9]+$');
+                        if (reg.test(e.target.value)) {
+                            console.log(reg.test(e.target.value), 'wrong => its not str had num')
 
-                        // setNumTest(<RegNum />)
-                        // setTimeout(() => {
-                        //     setNumTest('')
-                        // }, 1000);
-                        // }
+                            setCaseComponent(<PopUpMessage message={'WRONG INPUT "NOT NAME, HAS NUMBER IN IT"'}
+                                addClassParent={"parent-fallen"}
+                                addClassCase={'fallen'}
+                            />)
+                            setTimeout(() => {
+                                setCaseComponent('')
+                            }, 1000);
+                        }
 
                     }} />
                 <hr />
