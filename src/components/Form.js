@@ -25,18 +25,20 @@ function Form() {
         || forms.reson === '';
     console.log('des case', btnIsDisable)
 
-    function testAndPopUI(e) {
-        const reg = new RegExp('^[0-9]+$');
+    function testAndPopUI(e, patern, message) {
+        const reg = new RegExp(patern);
         if (!reg.test(e.target.value)) {
             console.log(reg.test(e.target.value), 'wrong => its not num')
 
-            setCaseComponent(<PopUpMessage message={'WRONG INPUT "NOT NUMBER"'}
-                addClassParent={"parent-fallen"}
+            setCaseComponent(<PopUpMessage message={message}
+                addClassParent={"parent-fallen parent"}
                 addClassCase={'fallen'}
+                setCase={setCaseComponent}
             />)
-            setTimeout(() => {
-                setCaseComponent('')
-            }, 1000);
+            //we need to cancel this time  and change them  by button to close the popup
+            // setTimeout(() => {
+            //     setCaseComponent('')
+            // }, 1000);
         }
     }
 
@@ -55,18 +57,29 @@ function Form() {
                     onChange={(e) => {
                         setForms({ ...forms, name: e.target.value })
 
-                        const reg = new RegExp('[0-9]+$');
-                        if (reg.test(e.target.value)) {
-                            console.log(reg.test(e.target.value), 'wrong => its not str had num')
 
-                            setCaseComponent(<PopUpMessage message={'WRONG INPUT "NOT NAME, HAS NUMBER IN IT"'}
-                                addClassParent={"parent-fallen"}
-                                addClassCase={'fallen'}
-                            />)
-                            setTimeout(() => {
-                                setCaseComponent('')
-                            }, 1000);
-                        }
+                        // console.log('iam her!!', forms.name)
+                        let thatweneed = e.target.value;
+                        console.log('that!!!>>', thatweneed)
+
+                        const reg = new RegExp('[0-9]+$');
+                        const regex = /'[0-9]+$'/g;
+                        console.log(thatweneed.match(regex))
+                        //here we see what is hapend
+                        console.log(forms.name)
+                        console.log(forms.name.match(/[0-9]/ig));
+
+                        // if (reg.test(e.target.value) && reg.test(e.target.value.match(reg))) {
+                        //     console.log(reg.test(e.target.value), 'wrong => its not str had num')
+
+                        //     setCaseComponent(<PopUpMessage message={'WRONG INPUT "NOT NAME, HAS NUMBER IN IT"'}
+                        //         addClassParent={"parent-fallen"}
+                        //         addClassCase={'fallen'}
+                        //     />)
+                        //     setTimeout(() => {
+                        //         setCaseComponent('')
+                        //     }, 1000);
+                        // }
 
                     }} />
                 <hr />
@@ -91,7 +104,7 @@ function Form() {
                         //     }, 1000);
                         // }
 
-                        testAndPopUI(e)
+                        testAndPopUI(e, '^[0-9]+$', 'WRONG INPUT "NOT NUMBER"')
 
 
                     }} />
@@ -133,7 +146,7 @@ function Form() {
                         //     }, 1000);
                         // }
 
-                        testAndPopUI(e)
+                        testAndPopUI(e, '^[0-9]+$', 'WRONG INPUT "NOT NUMBER"')
 
                     }} />
                 <hr />
@@ -165,7 +178,7 @@ function Form() {
                         //     }, 1000);
                         // }
 
-                        testAndPopUI(e)
+                        testAndPopUI(e, '^[0-9]+$', 'WRONG INPUT "NOT NUMBER"')
                     }} />
                 <hr />
                 <div>
