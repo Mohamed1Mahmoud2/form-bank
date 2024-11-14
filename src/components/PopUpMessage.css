@@ -33,3 +33,14 @@
 .fallen{
     color: rgb(250, 39, 39);
 }
+
+
+.close-btn{
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    color: white;
+    position: absolute;
+        top: 10px;
+        left: 50px;
+}
