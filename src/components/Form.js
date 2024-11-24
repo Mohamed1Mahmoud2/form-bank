@@ -59,27 +59,30 @@ function Form() {
 
 
                         // console.log('iam her!!', forms.name)
-                        let thatweneed = e.target.value;
-                        console.log('that!!!>>', thatweneed)
+                        let thatweneed = e.target.value;// if i chane it for the state can do it
+                        let nameCheck = forms.name;
+                        console.log('that!need>>', thatweneed)
+                        console.log('that!!!>namech>', nameCheck)
 
                         const reg = new RegExp('[0-9]+$');
                         const regex = /'[0-9]+$'/g;
-                        console.log(thatweneed.match(regex))
+                        console.log('check the we need var>>', thatweneed.match(regex))
+                        console.log('check the nameCheck var>>', nameCheck.match(regex))
                         //here we see what is hapend
-                        console.log(forms.name)
-                        console.log(forms.name.match(/[0-9]/ig));
+                        console.log('form state>>', forms.name)
+                        console.log('form state dir check>>', forms.name.match(/[0-9]/ig));// that is return what we need 
 
                         // if (reg.test(e.target.value) && reg.test(e.target.value.match(reg))) {
-                        //     console.log(reg.test(e.target.value), 'wrong => its not str had num')
+                        if (reg.test(forms.name.match(reg))) {
+                            console.log(reg.test(e.target.value), 'wrong => its not str had num')
 
-                        //     setCaseComponent(<PopUpMessage message={'WRONG INPUT "NOT NAME, HAS NUMBER IN IT"'}
-                        //         addClassParent={"parent-fallen"}
-                        //         addClassCase={'fallen'}
-                        //     />)
-                        //     setTimeout(() => {
-                        //         setCaseComponent('')
-                        //     }, 1000);
-                        // }
+                            setCaseComponent(<PopUpMessage message={'WRONG INPUT "NOT NAME, HAS NUMBER IN IT"'}
+                                addClassParent={"parent-fallen"}
+                                addClassCase={'fallen'}
+                                setCase={setCaseComponent}
+                            />)
+
+                        }
 
                     }} />
                 <hr />
