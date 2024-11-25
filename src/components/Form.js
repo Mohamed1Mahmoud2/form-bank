@@ -35,10 +35,7 @@ function Form() {
                 addClassCase={'fallen'}
                 setCase={setCaseComponent}
             />)
-            //we need to cancel this time  and change them  by button to close the popup
-            // setTimeout(() => {
-            //     setCaseComponent('')
-            // }, 1000);
+
         }
     }
 
@@ -58,21 +55,14 @@ function Form() {
                         setForms({ ...forms, name: e.target.value })
 
 
-                        // console.log('iam her!!', forms.name)
-                        let thatweneed = e.target.value;// if i chane it for the state can do it
-                        let nameCheck = forms.name;
-                        console.log('that!need>>', thatweneed)
-                        console.log('that!!!>namech>', nameCheck)
+
 
                         const reg = new RegExp('[0-9]+$');
-                        const regex = /'[0-9]+$'/g;
-                        console.log('check the we need var>>', thatweneed.match(regex))
-                        console.log('check the nameCheck var>>', nameCheck.match(regex))
+
                         //here we see what is hapend
                         console.log('form state>>', forms.name)
                         console.log('form state dir check>>', forms.name.match(/[0-9]/ig));// that is return what we need 
 
-                        // if (reg.test(e.target.value) && reg.test(e.target.value.match(reg))) {
                         if (reg.test(forms.name.match(reg))) {
                             console.log(reg.test(e.target.value), 'wrong => its not str had num')
 
@@ -94,18 +84,6 @@ function Form() {
                         setForms({ ...forms, age: e.target.value })
 
 
-                        // const reg = new RegExp('^[0-9]+$');
-                        // if (!reg.test(e.target.value)) {
-                        //     console.log(reg.test(e.target.value), 'wrong => its not num')
-                        //     //i use the block below a lot can put them in function and use the function
-                        //     setCaseComponent(<PopUpMessage message={'WRONG INPUT "NOT NUMBER"'}
-                        //         addClassParent={"parent-fallen"}
-                        //         addClassCase={'fallen'}
-                        //     />)
-                        //     setTimeout(() => {
-                        //         setCaseComponent('')
-                        //     }, 1000);
-                        // }
 
                         testAndPopUI(e, '^[0-9]+$', 'WRONG INPUT "NOT NUMBER"')
 
@@ -136,18 +114,7 @@ function Form() {
                 <input value={forms.phoneNumber}
                     onChange={(e) => {
                         setForms({ ...forms, phoneNumber: e.target.value })
-                        // const reg = new RegExp('^[0-9]+$');
-                        // if (!reg.test(e.target.value)) {
-                        //     console.log(reg.test(e.target.value), 'wrong => its not num')
 
-                        //     setCaseComponent(<PopUpMessage message={'WRONG INPUT "NOT NUMBER"'}
-                        //         addClassParent={"parent-fallen"}
-                        //         addClassCase={'fallen'}
-                        //     />)
-                        //     setTimeout(() => {
-                        //         setCaseComponent('')
-                        //     }, 1000);
-                        // }
 
                         testAndPopUI(e, '^[0-9]+$', 'WRONG INPUT "NOT NUMBER"')
 
@@ -168,18 +135,6 @@ function Form() {
                 <input value={forms.yourSalary}
                     onChange={(e) => {
                         setForms({ ...forms, yourSalary: e.target.value })
-                        // const reg = new RegExp('^[0-9]+$');
-                        // if (!reg.test(e.target.value)) {
-                        //     console.log(reg.test(e.target.value), 'wrong => its not num')
-
-                        //     setCaseComponent(<PopUpMessage message={'WRONG INPUT "NOT NUMBER"'}
-                        //         addClassParent={"parent-fallen"}
-                        //         addClassCase={'fallen'}
-                        //     />)
-                        //     setTimeout(() => {
-                        //         setCaseComponent('')
-                        //     }, 1000);
-                        // }
 
                         testAndPopUI(e, '^[0-9]+$', 'WRONG INPUT "NOT NUMBER"')
                     }} />
@@ -201,6 +156,7 @@ function Form() {
                             addClassParent={"parent-succeed"}
                             addClassCase={'succeed'}
                         />)
+                        console.table(forms)
                         setTimeout(() => {
                             setCaseComponent('')
                         }, 2000);
